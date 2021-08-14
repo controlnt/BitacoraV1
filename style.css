@@ -1,0 +1,7 @@
+.cerrar-sesion {
+    margin-top: 10px;
+    border-radius: .25rem;
+    border: 1px solid transparent;
+    background-color: #FF0000;
+    padding: .375rem .75rem;
+}

@@ -31,7 +31,11 @@
                     <input type="submit" class="btn btn-success btn-block" name="guardar_tarea" value="Guardar Tarea">
                 </form>
             </div>
-            <a href="cerrar_session.php">Cerrar Sesion</a>
+            <a href="cerrar_session.php">
+                <button class="cerrar-sesion">
+                    <i class="fas fa-sign-out-alt"></i>Cerrar Sesion
+                </button>
+            </a>
         </div>
         <div class="col-md-8">
             <table class="table table-bordered"> 

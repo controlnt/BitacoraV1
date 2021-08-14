@@ -15,5 +15,7 @@ $conectarbd = mysqli_connect(
     echo "DB esta conectada";
 }*/
 
-$xd = "lapakwnoer"
+$xd = "lapakwnoer";
+
+$_SESSION['datos'] = $xd;
 ?>
