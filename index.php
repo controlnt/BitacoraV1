@@ -28,7 +28,17 @@
                         <textarea name="descripcion" rows="2" class="form-control" placeholder="Describir Tarea"></textarea>
                     </div>
                     <hr>
-                    <input type="submit" class="btn btn-success btn-block" name="guardar_tarea" value="Guardar Tarea">
+                    <div>
+                        <select name="estado" id="estado">
+                            <option selected value="realizada" class="realizada">Realizada</option>
+                            <option value="pendiente" class="pendiente">Pendiente</option>
+                            <option value="imprevista" class="imprevista">Imprevista</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <div>
+                        <input type="submit" class="btn btn-success btn-block" name="guardar_tarea" value="Guardar Tarea">
+                    </div>
                 </form>
             </div>
             

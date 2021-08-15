@@ -6,3 +6,15 @@
     padding: .375rem .75rem;
     margin-top: 0;
 }
+
+.realizada {
+    background-color: green;
+}
+
+.pendiente {
+    background-color: red;
+}
+
+.imprevista {
+    background-color: yellow;
+}
