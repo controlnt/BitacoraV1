@@ -40,6 +40,7 @@
                         <th>Titulo</th>
                         <th>Descripcion</th>
                         <th>Fecha</th>
+                        <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -53,6 +54,7 @@
                             <td><?php echo $fila['title']; ?></td>
                             <td><?php echo $fila['description']; ?></td>
                             <td><?php echo $fila['date']; ?></td>
+                            <td><?php echo $fila['estado'] ?></td>
                             <td>
                                 <a href="funciones/editar.php?id=<?php echo $fila['id']?>" class="btn btn-secondary">
                                     <i class="fa fa-marker"></i>
@@ -62,7 +64,6 @@
                                 </a>
                             </td>
                         </tr>
-
                     <?php }
                     mysqli_close($conectarbd); ?>
             </table>
