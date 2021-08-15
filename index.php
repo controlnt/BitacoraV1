@@ -31,11 +31,7 @@
                     <input type="submit" class="btn btn-success btn-block" name="guardar_tarea" value="Guardar Tarea">
                 </form>
             </div>
-            <a href="cerrar_session.php">
-                <button class="cerrar-sesion">
-                    <i class="fas fa-sign-out-alt"></i>Cerrar Sesion
-                </button>
-            </a>
+            
         </div>
         <div class="col-md-8">
             <table class="table table-bordered"> 
@@ -61,8 +57,8 @@
                                 <a href="funciones/editar.php?id=<?php echo $fila['id']?>" class="btn btn-secondary">
                                     <i class="fa fa-marker"></i>
                                 </a>
-                                <a href="funciones/eliminar.php?id=<?php echo $fila['id']?>" class="btn btn-danger">
-                                    <i class="fa fa-trash-alt"></i>
+                                <a href="funciones/realizada.php?id=<?php echo $fila['id']?>" class="btn btn-success">
+                                    <i class="fas fa-check"></i>
                                 </a>
                             </td>
                         </tr>

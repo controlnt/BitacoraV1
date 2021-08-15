@@ -12,9 +12,17 @@
     <script src="https://kit.fontawesome.com/7e992ae22f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="index.php">SANGEL N TEGNOLOGIA</a>
-    </div>
-</nav>
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">SANGEL N TEGNOLOGIA</a>
+        </div>
+        
+                <a href="cerrar_session.php">
+                    <button class="cerrar-sesion">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </a>
+        </ul>
+    </nav>
+</header>
