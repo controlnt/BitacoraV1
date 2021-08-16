@@ -29,7 +29,7 @@
                     </div>
                     <hr>
                     <div>
-                        <select name="estado" id="estado">
+                        <select name="estado" id="estado" class="form-control">
                             <option selected value="realizada" class="realizada">Realizada</option>
                             <option value="pendiente" class="pendiente">Pendiente</option>
                             <option value="imprevista" class="imprevista">Imprevista</option>
