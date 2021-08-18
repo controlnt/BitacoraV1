@@ -1,5 +1,12 @@
 <?php include("includes/header.php");
-
+include("bd.php");
+/*
+$ver_login = $_SESSION['ver_login'];
+echo $ver_login;
+*/
+if (!isset($_SESSION['ver_login'])) {
+    header('Location: login/form_login.php');
+}
 
 ?>
 
@@ -56,7 +63,6 @@
                 </thead>
                 <tbody>
                     <?php
-                    include ("bd.php");
                     $query = "SELECT * FROM task";
                     $resultados_tareas = mysqli_query($conectarbd, $query);
                     while ($fila = mysqli_fetch_array($resultados_tareas)) {?>

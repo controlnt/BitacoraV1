@@ -5,7 +5,6 @@ include ("../bd.php");
 $usuario = $_POST['usuario'];
 $contraseña = $_POST['contraseña'];
 
-echo "$usuario";
 
 if ($_POST['btnlogin']) {
     $query = mysqli_query($conectarbd,"SELECT * FROM users WHERE usuario = '$usuario'");
@@ -17,12 +16,12 @@ if ($_POST['btnlogin']) {
         header("Location: ../index.php");
     }
 }else {
-    echo "<script>
+    echo "no mo sirve" /*"<script>
                 alert('Mensaje');
-    </script>";
+    </script>"*/;
+    header("Location:form_registro.php");
 }
 
 /*header("Location: index.php");*/
-
 
 ?>
