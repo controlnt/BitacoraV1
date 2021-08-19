@@ -1,7 +1,7 @@
 <?php include("includes/header.php");
 include("bd.php");
 
-$cerrar_session = "aparecer";
+$cerrar_session = "ocultar";
 
 if (!isset($_SESSION['ver_login'])) {
     header('Location: login/form_login.php');

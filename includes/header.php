@@ -17,8 +17,8 @@
         <div class="container">
             <a class="navbar-brand" href="index.php">SANGEL N TEGNOLOGIA</a>
         </div>
-                <a href="cerrar_session.php">
-                    <button class="cerrar-sesion">
+                <a href="cerrar_session.php" >
+                    <button class="cerrar-sesion" id="cerrarsesion">
                         <i class="fas fa-sign-out-alt"></i>
                     </button>
                 </a>
