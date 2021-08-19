@@ -1,9 +1,8 @@
 <?php include("includes/header.php");
 include("bd.php");
-/*
-$ver_login = $_SESSION['ver_login'];
-echo $ver_login;
-*/
+
+$cerrar_session = "aparecer";
+
 if (!isset($_SESSION['ver_login'])) {
     header('Location: login/form_login.php');
 }
