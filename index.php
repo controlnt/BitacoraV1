@@ -33,6 +33,9 @@ if (!isset($_SESSION['ver_login'])) {
                     <div class="form-group">
                         <textarea name="descripcion" rows="2" class="form-control" placeholder="Describir Tarea"></textarea>
                     </div>
+                    <div class="form-group">
+                        <input type="date" name="fecha" class="form-control" placeholder="Fecha">
+                    </div>
                     <hr>
                     <div>
                         <select name="estado" id="estado" class="form-control">
@@ -71,6 +74,9 @@ if (!isset($_SESSION['ver_login'])) {
                             <td><?php echo $fila['date']; ?></td>
                             <td><?php echo $fila['estado'] ?></td>
                             <td>
+                                <a href="funciones/eliminar.php?id=<?php echo $fila['id']?>" class="btn btn-danger">
+                                    <i class="fa fa-trash-alt"></i>
+                                </a>
                                 <a href="funciones/editar.php?id=<?php echo $fila['id']?>" class="btn btn-secondary">
                                     <i class="fa fa-marker"></i>
                                 </a>
