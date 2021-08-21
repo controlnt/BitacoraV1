@@ -18,11 +18,14 @@ if (!isset($_SESSION['ver_login'])) {
         <div class="col-md-4">
 
             <?php if (isset($_SESSION['mensaje'])) { ?>
-                <div class="alert alert-<? $_SESSION['tipo-mensaje']?> alert-dismissible fade show" role="alert">
+                <div class="alert alert-<?= $_SESSION['tipo-mensaje']?> alert-dismissible fade show" role="alert">
                     <?= $_SESSION['mensaje'] ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            <?php session_unset(); } ?>
+            <?php 
+            unset ($_SESSION['mensaje']); 
+            unset ($_SESSION['tipo-mensaje']);
+            } ?>
 
             <div class="card card-body">
                 <form action="funciones/crear.php" method="POST">
@@ -33,8 +36,9 @@ if (!isset($_SESSION['ver_login'])) {
                     <div class="form-group">
                         <textarea name="descripcion" rows="2" class="form-control" placeholder="Describir Tarea"></textarea>
                     </div>
+                    <hr>
                     <div class="form-group">
-                        <input type="date" name="fecha" class="form-control" placeholder="Fecha">
+                        <input type="datetime-local" name="fecha" class="form-control" placeholder="Fecha">
                     </div>
                     <hr>
                     <div>

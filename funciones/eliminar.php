@@ -10,7 +10,7 @@ include ("../bd.php");
             die("Error al eliminar");
         }
 
-        $_SESSION['mensaje'] = 'tarea eliminada satisfactoriamente';
+        $_SESSION['mensaje'] = 'Tarea Eliminada';
         $_SESSION['tipo-mensaje'] = 'danger';
         header("Location: ../index.php");
     }
