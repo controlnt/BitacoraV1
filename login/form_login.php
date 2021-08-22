@@ -1,5 +1,7 @@
 <?php 
+$cerrar_session = "ocultar";
 include("../includes/header.php");?>
+
 <center>
 <div>
     <h1>Inicio Sesion</h1>

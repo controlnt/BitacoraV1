@@ -17,7 +17,7 @@
         <div class="container">
             <a class="navbar-brand" href="index.php">SANGEL N TEGNOLOGIA</a>
         </div>
-                <a href="cerrar_session.php" >
+                <a href="cerrar_session.php" id="ocultar">
                     <button class="cerrar-sesion" id="cerrarsesion">
                         <i class="fas fa-sign-out-alt"></i>
                     </button>
@@ -25,3 +25,14 @@
         </ul>
     </nav>
 </header>
+
+<?php
+if ($cerrar_session=="ocultar") {?>
+    <style>
+        #ocultar {
+            display: none;
+        }
+    </style>
+<?php
+}
+?>

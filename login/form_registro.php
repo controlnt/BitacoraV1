@@ -1,4 +1,5 @@
 <?php 
+$cerrar_session = "ocultar";
 include("../includes/header.php");?>
 
 <center>

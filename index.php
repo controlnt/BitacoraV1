@@ -1,12 +1,11 @@
-<?php include("includes/header.php");
+<?php
 include("bd.php");
 
-$cerrar_session = "ocultar";
+include("includes/header.php");
 
 if (!isset($_SESSION['ver_login'])) {
     header('Location: login/form_login.php');
 }
-
 ?>
 
 <div class="container p-4">
