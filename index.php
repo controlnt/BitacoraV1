@@ -1,6 +1,8 @@
 <?php
 include("bd.php");
 
+$cerrar_session = "mostrar";
+
 include("includes/header.php");
 
 if (!isset($_SESSION['ver_login'])) {
