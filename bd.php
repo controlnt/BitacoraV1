@@ -1,7 +1,9 @@
 <?php
 
 #iniciar sesion
+if (isset($_SESSION)) {
 session_start();
+}
 
 #datos para conectar bd
 $conectarbd = mysqli_connect(
@@ -14,8 +16,4 @@ $conectarbd = mysqli_connect(
 /*if (isset($conectarbd)) {
     echo "DB esta conectada";
 }*/
-
-$xd = "lapakwnoer";
-
-$_SESSION['datos'] = $xd;
 ?>

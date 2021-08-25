@@ -25,6 +25,11 @@
 </header>
 
 <?php
+
+if (!isset($conectarbd)) {
+    include("../bd.php");
+}
+
 if ($cerrar_session=="ocultar") {?>
     <style>
         #ocultar {
