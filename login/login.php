@@ -24,4 +24,5 @@ if ($_POST['btnlogin']) {
 
 /*header("Location: index.php");*/
 $_SESSION['usuario'] = $usuario;
+echo $_SESSION['usuario'];
 ?>
