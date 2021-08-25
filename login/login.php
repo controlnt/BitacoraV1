@@ -16,13 +16,9 @@ if ($_POST['btnlogin']) {
         header("Location: ../index.php");
     }
 }else {
-    echo "no mo sirve" /*"<script>
-                alert('Mensaje');
-    </script>"*/;
     header("Location: form_registro.php");
 }
 
 /*header("Location: index.php");*/
 $_SESSION['usuario'] = $usuario;
-echo $_SESSION['usuario'];
 ?>
