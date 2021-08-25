@@ -44,9 +44,9 @@ if (!isset($_SESSION['ver_login'])) {
                     <hr>
                     <div>
                         <select name="estado" id="estado" class="form-control">
-                            <option selected value="realizada" class="realizada">Realizada</option>
-                            <option value="pendiente" class="pendiente">Pendiente</option>
-                            <option value="imprevista" class="imprevista">Imprevista</option>
+                            <option selected value="realizada" class="success">Realizada</option>
+                            <option value="pendiente" class="warning">Pendiente</option>
+                            <option value="imprevista" class="danger">Imprevista</option>
                         </select>
                     </div>
                     <hr>

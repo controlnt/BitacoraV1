@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BITACORA</title>
     <!-- bostrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <!--FONT AWESOME -->
     <script src="https://kit.fontawesome.com/7e992ae22f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
 </head>
 <header>
     <nav class="navbar navbar-dark bg-dark">
@@ -18,7 +16,7 @@
             <a class="navbar-brand" href="index.php">SANGEL N TEGNOLOGIA</a>
         </div>
                 <a href="cerrar_session.php" id="ocultar">
-                    <button class="cerrar-sesion" id="cerrarsesion">
+                    <button class="btn btn-danger text-nowrap" id="cerrarsesion">
                         <i class="fas fa-sign-out-alt"></i>
                     </button>
                 </a>

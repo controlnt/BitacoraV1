@@ -19,9 +19,10 @@ if ($_POST['btnlogin']) {
     echo "no mo sirve" /*"<script>
                 alert('Mensaje');
     </script>"*/;
-    header("Location:form_registro.php");
+    header("Location: form_registro.php");
 }
 
 /*header("Location: index.php");*/
-
+$_SESSION['usuario'] = $usuario;
+echo $_SESSION['usuario'];
 ?>

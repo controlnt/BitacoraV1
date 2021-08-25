@@ -1,6 +1,8 @@
 <?php 
 $cerrar_session = "ocultar";
-include("../includes/header.php");?>
+include("../bd.php");
+include("../includes/header.php");
+?>
 
 <center>
 <div>
