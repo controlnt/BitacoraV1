@@ -1,6 +1,7 @@
 <?php
 
-    include("../bd.php");
+    set_include_path('\xampp\htdocs\bitacora');
+    include("bd.php");
 
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
