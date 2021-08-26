@@ -7,7 +7,8 @@ if (isset($_POST['guardar_tarea'])) {
     $descripcion = $_POST['descripcion'];
     $estado = $_POST['estado'];
     $fecha = $_POST['fecha'];
-    $query = "INSERT INTO task(title, description, estado, date) VALUES ('$titulo', '$descripcion', '$estado', '$fecha')";
+    $id_usu = $_SESSION['id_usu'];
+    $query = "INSERT INTO task(title, description, estado, date, id_users) VALUES ('$titulo', '$descripcion', '$estado', '$fecha', '$id_usu')";
     $result = mysqli_query($conectarbd, $query);
     if (!$result) {
         die("Fallo en query");
