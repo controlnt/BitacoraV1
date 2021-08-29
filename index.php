@@ -70,7 +70,8 @@ if (!isset($_SESSION['ver_login'])) {
                 </thead>
                 <tbody>
                     <?php
-                    $query = "SELECT * FROM task";
+                    $id = $_SESSION['id_usu'];
+                    $query = "SELECT * FROM task WHERE id_users = '$id'";
                     $resultados_tareas = mysqli_query($conectarbd, $query);
                     while ($fila = mysqli_fetch_array($resultados_tareas)) {?>
                         <tr>
