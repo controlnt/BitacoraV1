@@ -100,6 +100,14 @@ if (!isset($_SESSION['ver_login'])) {
                     mysqli_close($conectarbd); ?>
             </table>
         </div>
+        <hr class="y m-2">
+        <form class="container-fluid" action="funciones/buscar.php" method="POST">
+            <div class="input-group col-md-8">
+                <i class="fas fa-search input-group-text" style="padding: 10px;"></i>
+                <input type="text" class="form-control" placeholder="Buscar tarea" name="tarea_buscar">
+                <input type="button" class="btn btn-outline-success" name="buscar_tarea" value="Buscar" >
+            </div>
+        </form>
     </div>
 </div>
 
