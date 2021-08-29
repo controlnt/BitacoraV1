@@ -1,5 +1,10 @@
 <?php
 include("bd.php");
+$usuario = $_SESSION['usuario'];
+$query = "SELECT * FROM users WHERE usuario = '$usuario'";
+$resultados_id = mysqli_query($conectarbd, $query);
+$fila = mysqli_fetch_array($resultados_id);
+$_SESSION['id_usu'] = $fila['id'];
 
 $cerrar_session = "mostrar";
 
