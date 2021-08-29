@@ -96,8 +96,7 @@ if (!isset($_SESSION['ver_login'])) {
                                 </a>
                             </td>
                         </tr>
-                    <?php }
-                    mysqli_close($conectarbd); ?>
+                    <?php } ?>
             </table>
         </div>
         <hr class="y m-2">
@@ -105,9 +104,39 @@ if (!isset($_SESSION['ver_login'])) {
             <div class="input-group col-md-8">
                 <i class="fas fa-search input-group-text" style="padding: 10px;"></i>
                 <input type="text" class="form-control" placeholder="Buscar tarea" name="tarea_buscar">
-                <input type="button" class="btn btn-outline-success" name="buscar_tarea" value="Buscar" >
+                <input type="submit" class="btn btn-outline-success" name="buscar_tarea" value="Buscar" >
             </div>
         </form>
+        <div>
+            <hr>
+            <table class="table table-bordered">
+                <thead>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                </thead>
+                <tbody>
+                    <?php
+                    if (!isset($_SESSION['t_buscada'])) {
+                        $_SESSION['t_buscada'] = NULL;
+                    }
+                    $t_buscada = $_SESSION['t_buscada'];
+                    $query = "SELECT * FROM task WHERE title like '$t_buscada'";
+                    $result_busca = mysqli_query($conectarbd, $query);
+                    while ($fila = mysqli_fetch_array($result_busca)) {
+                    ?>
+                    <tr>
+                        <td><?php echo $fila['title']?></td>
+                        <td><?php echo $fila['description']?></td>
+                        <td><?php echo $fila['date']?></td>
+                        <td><?php echo $fila['estado']?></td>
+                    </tr>
+                    <?php }
+                    mysqli_close($conectarbd); ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
