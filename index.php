@@ -17,7 +17,7 @@ if (!isset($_SESSION['ver_login'])) {
 
 <div class="container p-4">
 
-<h1>Bienvenido</h1>
+<h1>Bienvenido <?= $_SESSION['usuario']?></h1>
 
     <div class="row">
 
