@@ -13,7 +13,7 @@ include("../includes/header.php");
             <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Ingrese Usuario" required>
             </div>
             <div class="col-2 m-1">
-            <input class="form-control" type="password" name="contraseña" placeholder="Ingrese Contraseña" required>
+            <input class="form-control" type="password" name="contrasena" placeholder="Ingrese Contraseña" required>
             </div>
             <input class="btn btn-success" type="submit" value="Login" name="btnlogin">
         </form>

@@ -5,10 +5,10 @@ session_start();
 
 #datos para conectar bd
 $conectarbd = mysqli_connect(
-    'localhost',
-    'root',
-    '',
-    'bitacora'
+    'host17.latinoamericahosting.com',
+    'sangelco',
+    'S@ngelCP2020',
+    'sangelco_bitacora'
 );
 
 /*if (isset($conectarbd)) {

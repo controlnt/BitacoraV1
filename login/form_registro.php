@@ -13,7 +13,7 @@ include("../includes/header.php");?>
             <input type="email" name="correo" placeholder="Ingrese Correo" class="form-control">
             </div>
             <div class="col-2 m-1">
-            <input type="password" name="contraseña" placeholder="Ingrese Contraseña" required class="form-control">
+            <input type="password" name="contrasena" placeholder="Ingrese Contraseña" required class="form-control">
             </div>
             <input class="btn btn-success" type="submit" value="Registrar" name="btnregistrar">
         </form>

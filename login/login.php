@@ -3,7 +3,7 @@ include ("../bd.php");
 
 
 $usuario = $_POST['usuario'];
-$contraseña = $_POST['contraseña'];
+$contrasena = $_POST['contrasena'];
 
 
 if ($_POST['btnlogin']) {
@@ -11,7 +11,7 @@ if ($_POST['btnlogin']) {
     $fila = mysqli_num_rows($query);
     $buscarcontra = mysqli_fetch_array($query);
 
-    if (($fila == 1)&&(password_verify($contraseña,$buscarcontra['contraseña']))) {
+    if (($fila == 1)&&(password_verify($contrasena,$buscarcontra['contrasena']))) {
         $_SESSION['ver_login'] = $usuario;
         header("Location: ../index.php");
     }
