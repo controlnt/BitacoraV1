@@ -76,13 +76,19 @@ if (!isset($_SESSION['ver_login'])) {
                 <tbody>
                     <?php
                     $id = $_SESSION['id_usu'];
-                    $query = "SELECT * FROM task WHERE id_users = '$id'";
+                    date_default_timezone_set('America/Bogota');
+                    $hoy_i = date("Y-m-d 00:00:00");
+                    $hoy_f = date("Y-m-d 23:59:59");
+                    print_r($hoy_i);
+                    print_r($hoy_f);
+                    $query = "SELECT * FROM task WHERE date_t BETWEEN '". $hoy_i. "' AND '".$hoy_f."'";
                     $resultados_tareas = mysqli_query($conectarbd, $query);
+                    print_r($resultados_tareas);
                     while ($fila = mysqli_fetch_array($resultados_tareas)) {?>
                         <tr>
                             <td><?php echo $fila['title']; ?></td>
                             <td><?php echo $fila['description']; ?></td>
-                            <td><?php echo $fila['date']; ?></td>
+                            <td><?php echo $fila['date_t']; ?></td>
                             <td><?php echo $fila['estado'] ?></td>
                             <td>
                                 <a href="funciones/eliminar.php?id=<?php echo $fila['id']?>" class="btn btn-danger">
@@ -129,7 +135,7 @@ if (!isset($_SESSION['ver_login'])) {
                     <tr>
                         <td><?php echo $fila['title']?></td>
                         <td><?php echo $fila['description']?></td>
-                        <td><?php echo $fila['date']?></td>
+                        <td><?php echo $fila['date_t']?></td>
                         <td><?php echo $fila['estado']?></td>
                     </tr>
                     <?php }
