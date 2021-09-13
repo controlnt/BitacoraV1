@@ -79,11 +79,8 @@ if (!isset($_SESSION['ver_login'])) {
                     date_default_timezone_set('America/Bogota');
                     $hoy_i = date("Y-m-d 00:00:00");
                     $hoy_f = date("Y-m-d 23:59:59");
-                    print_r($hoy_i);
-                    print_r($hoy_f);
                     $query = "SELECT * FROM task WHERE date_t BETWEEN '". $hoy_i. "' AND '".$hoy_f."'";
                     $resultados_tareas = mysqli_query($conectarbd, $query);
-                    print_r($resultados_tareas);
                     while ($fila = mysqli_fetch_array($resultados_tareas)) {?>
                         <tr>
                             <td><?php echo $fila['title']; ?></td>
@@ -106,11 +103,19 @@ if (!isset($_SESSION['ver_login'])) {
             </table>
         </div>
         <hr class="y m-2">
-        <form class="container-fluid" action="funciones/buscar.php" method="POST">
-            <div class="input-group col-md-8">
-                <i class="fas fa-search input-group-text" style="padding: 10px;"></i>
-                <input type="text" class="form-control" placeholder="Buscar tarea" name="tarea_buscar">
-                <input type="submit" class="btn btn-outline-success" name="buscar_tarea" value="Buscar" >
+        <form class="container-md" action="funciones/buscar.php" method="POST">
+            <div class="row">
+                        <label for="desde">Desde</label>
+                    <div class="col">
+                        <input type="datetime-local" name="fecha_i" class="form-control">
+                    </div>
+                        <label for="hasta">Hasta</label>
+                    <div class="col">
+                        <input type="datetime-local" name="fecha_f" class="form-control">
+                    </div>
+                    <div class="row col">
+                        <input type="submit" class="btn btn-outline-success" name="buscar_tarea" value="Buscar" >
+                    </div>
             </div>
         </form>
         <div>
@@ -121,6 +126,7 @@ if (!isset($_SESSION['ver_login'])) {
                     <th>Descripcion</th>
                     <th>Fecha</th>
                     <th>Estado</th>
+                    <th>Acciones</th>
                 </thead>
                 <tbody>
                     <?php
@@ -128,18 +134,30 @@ if (!isset($_SESSION['ver_login'])) {
                         $_SESSION['t_buscada'] = NULL;
                     }
                     $t_buscada = $_SESSION['t_buscada'];
-                    $query = "SELECT * FROM task WHERE title like '$t_buscada'";
-                    $result_busca = mysqli_query($conectarbd, $query);
-                    while ($fila = mysqli_fetch_array($result_busca)) {
+                    if ($t_buscada != NULL) {
                     ?>
                     <tr>
-                        <td><?php echo $fila['title']?></td>
-                        <td><?php echo $fila['description']?></td>
-                        <td><?php echo $fila['date_t']?></td>
-                        <td><?php echo $fila['estado']?></td>
+                        <td><?php echo $t_buscada['title']?></td>
+                        <td><?php echo $t_buscada['description']?></td>
+                        <td><?php echo $t_buscada['date_t']?></td>
+                        <td><?php echo $t_buscada['estado']?></td>
+                        <td>
+                                <a href="funciones/eliminar.php?id=<?php echo $t_buscada['id']?>" class="btn btn-danger">
+                                    <i class="fa fa-trash-alt"></i>
+                                </a>
+                                <a href="funciones/editar.php?id=<?php echo $t_buscada['id']?>" class="btn btn-secondary">
+                                    <i class="fa fa-marker"></i>
+                                </a>
+                                <a href="funciones/realizada.php?id=<?php echo $t_buscada['id']?>" class="btn btn-success">
+                                    <i class="fas fa-check"></i>
+                                </a>
+                        </td>
                     </tr>
-                    <?php }
-                    mysqli_close($conectarbd); ?>
+                    <?php
+                    }
+                    if(isset($_SESSION['t_buscada'])) {
+                    unset ($_SESSION['t_buscada']);
+                    } ?>
                 </tbody>
             </table>
         </div>

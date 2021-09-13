@@ -20,7 +20,6 @@
                         <i class="fas fa-sign-out-alt"></i>
                     </button>
                 </a>
-        </ul>
     </nav>
 </header>
 

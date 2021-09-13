@@ -2,7 +2,7 @@
 
     set_include_path('\xampp\htdocs\bitacora');
     include("bd.php");
-
+    $cerrar_session = "mostrar";
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
         $query = "SELECT * FROM task WHERE id = $id";
