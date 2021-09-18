@@ -20,8 +20,6 @@
             </div>
             <div class="row justify-content-start">
                 <div class="col">
-                    <a href="consultar.php" class="btn btn-secondary">Consultar Tareas
-                    </a>
                     <a href="cerrar_session.php" id="ocultar">
                         <button class="btn btn-danger text-nowrap" id="cerrarsesion">
                             <i class="fas fa-sign-out-alt"></i>

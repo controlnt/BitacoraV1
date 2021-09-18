@@ -102,12 +102,20 @@ if (!isset($_SESSION['ver_login'])) {
 
         <hr class="y m-2">
         
-            <form action="funciones/buscar.php" method="POST">
+            <form class="container" action="funciones/buscar.php" method="POST">
+            <div class="row">
+                <div class="col-5">
                     <label for="desde">Desde</label>
                     <input type="datetime-local" name="fecha_i" class="form-control">
+                </div>
+                <div class="col-5">
                     <label for="hasta">Hasta</label>
                     <input type="datetime-local" name="fecha_f" class="form-control">
+                </div>
+                <div class="col-2">
                     <input type="submit" class="btn btn-outline-success" name="buscar_tarea" value="Buscar">
+                </div>
+            </div>
             </form>
         <div>
             <hr>
