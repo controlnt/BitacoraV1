@@ -13,13 +13,23 @@
 <header>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.php">SANGEL N TEGNOLOGIA</a>
+            <div class="row justify-content-end">
+                <div class="col">
+                    <a class="navbar-brand" href="index.php">SANGEL N TEGNOLOGIA</a>
+                </div>
+            </div>
+            <div class="row justify-content-start">
+                <div class="col">
+                    <a href="consultar.php" class="btn btn-secondary">Consultar Tareas
+                    </a>
+                    <a href="cerrar_session.php" id="ocultar">
+                        <button class="btn btn-danger text-nowrap" id="cerrarsesion">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
-                <a href="cerrar_session.php" id="ocultar">
-                    <button class="btn btn-danger text-nowrap" id="cerrarsesion">
-                        <i class="fas fa-sign-out-alt"></i>
-                    </button>
-                </a>
     </nav>
 </header>
 

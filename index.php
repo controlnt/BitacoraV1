@@ -16,18 +16,15 @@ if (!isset($_SESSION['ver_login'])) {
 ?>
 
 <div class="container p-4">
-
-<h1>Bienvenido <?= $_SESSION['usuario']?></h1>
-
+    <h1>Bienvenido <?= $_SESSION['usuario']?></h1>
     <div class="row">
-
         <div class="col-md-4">
-
             <?php if (isset($_SESSION['mensaje'])) { ?>
                 <div class="alert alert-<?= $_SESSION['tipo-mensaje']?> alert-dismissible fade show" role="alert">
                     <?= $_SESSION['mensaje'] ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+
             <?php 
             unset ($_SESSION['mensaje']); 
             unset ($_SESSION['tipo-mensaje']);
@@ -60,8 +57,8 @@ if (!isset($_SESSION['ver_login'])) {
                     </div>
                 </form>
             </div>
-            
         </div>
+
         <div class="col-md-8">
             <table class="table table-bordered"> 
                 <thead>
@@ -102,22 +99,16 @@ if (!isset($_SESSION['ver_login'])) {
                     <?php } ?>
             </table>
         </div>
+
         <hr class="y m-2">
-        <form class="container-md" action="funciones/buscar.php" method="POST">
-            <div class="row">
-                        <label for="desde">Desde</label>
-                    <div class="col">
-                        <input type="datetime-local" name="fecha_i" class="form-control">
-                    </div>
-                        <label for="hasta">Hasta</label>
-                    <div class="col">
-                        <input type="datetime-local" name="fecha_f" class="form-control">
-                    </div>
-                    <div class="row col">
-                        <input type="submit" class="btn btn-outline-success" name="buscar_tarea" value="Buscar" >
-                    </div>
-            </div>
-        </form>
+        
+            <form action="funciones/buscar.php" method="POST">
+                    <label for="desde">Desde</label>
+                    <input type="datetime-local" name="fecha_i" class="form-control">
+                    <label for="hasta">Hasta</label>
+                    <input type="datetime-local" name="fecha_f" class="form-control">
+                    <input type="submit" class="btn btn-outline-success" name="buscar_tarea" value="Buscar">
+            </form>
         <div>
             <hr>
             <table class="table table-bordered">
@@ -160,8 +151,8 @@ if (!isset($_SESSION['ver_login'])) {
                     } ?>
                 </tbody>
             </table>
-        </div>
-    </div>
-</div>
+        </div><!--TABLE-->
+    </div><!--ROW-->
+</div><!--CONTAINER-->
 
 <?php include("includes/footer.php")?>
