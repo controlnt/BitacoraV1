@@ -99,26 +99,27 @@ if (!isset($_SESSION['ver_login'])) {
                     <?php } ?>
             </table>
         </div>
-
         <hr class="y m-2">
-        
-            <form class="container" action="funciones/buscar.php" method="POST">
-            <div class="row">
-                <div class="col-5">
+        <form class="container" action="funciones/buscar.php" method="POST">
+            <div class="row align-items-center">
+                <div class="col-1">
                     <label for="desde">Desde</label>
+                </div>
+                <div class="col-4">
                     <input type="datetime-local" name="fecha_i" class="form-control">
                 </div>
-                <div class="col-5">
+                <div class="col-1">
                     <label for="hasta">Hasta</label>
+                </div>
+                <div class="col-4">
                     <input type="datetime-local" name="fecha_f" class="form-control">
                 </div>
                 <div class="col-2">
                     <input type="submit" class="btn btn-outline-success" name="buscar_tarea" value="Buscar">
                 </div>
             </div>
-            </form>
-        <div>
-            <hr>
+        </form>
+        <div class="m-2">
             <table class="table table-bordered">
                 <thead>
                     <th>Titulo</th>
