@@ -20,6 +20,9 @@
             </div>
             <div class="row justify-content-start">
                 <div class="col">
+                    <a href="funciones/formularios/form_buscar.php" class="btn btn-secondary">
+                        Consutar Tareas
+                    </a>
                     <a href="cerrar_session.php" id="ocultar">
                         <button class="btn btn-danger text-nowrap" id="cerrarsesion">
                             <i class="fas fa-sign-out-alt"></i>

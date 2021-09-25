@@ -99,6 +99,7 @@ if (!isset($_SESSION['ver_login'])) {
                     <?php } ?>
             </table>
         </div>
+        <?php /*?>
         <hr class="y m-2">
         <form class="container" action="funciones/buscar.php" method="POST">
             <div class="row align-items-center">
@@ -161,7 +162,8 @@ if (!isset($_SESSION['ver_login'])) {
                 </tbody>
             </table>
         </div><!--TABLE-->
+        <?php */ ?>
     </div><!--ROW-->
 </div><!--CONTAINER-->
 
-<?php include("includes/footer.php")?>
+<?php  include("includes/footer.php")?>
