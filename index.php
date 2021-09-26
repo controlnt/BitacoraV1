@@ -60,7 +60,7 @@ if (!isset($_SESSION['ver_login'])) {
         </div>
 
         <div class="col-md-8">
-            <table class="table table-bordered"> 
+            <table class="table table-hover"> 
                 <thead>
                     <tr>
                         <th>Titulo</th>

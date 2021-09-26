@@ -41,27 +41,37 @@ if (!isset($_SESSION)) {
                 <th>Estado</th>
                 <th>Acciones</th>
             </thead>
-            <?php 
-                if (isset($_POST['buscar_tarea'])) {
+            <?php
+                if (!isset($_POST['buscar_tarea'])) {
+                    $_POST['buscar_tarea'] = NULL;
+                }
+                if ($_POST['buscar_tarea'] != NULL) {
                     $fecha_i = $_POST['fecha_i'];
                     $fecha_f = $_POST['fecha_f'];
-                    $query = "SELECT * FROM task WHERE date_t BETWEEN '". $fecha_i. "' AND '".$fecha_f."'";
-                    $result = mysqli_query($conectarbd, $query);
-                    while ($fila = mysqli_fetch_array($result)) {
+                    $query = "SELECT title, description, estado, date_t FROM task WHERE date_t BETWEEN ? AND ? /*'". $fecha_i. "' AND '".$fecha_f."'*/";
+                    $result = mysqli_prepare($conectarbd, $query);
+                    $exito = mysqli_stmt_bind_param($result, "ss", $fecha_i, $fecha_f);
+                    $exito = mysqli_stmt_execute($result);
+                    if ($exito==false) {
+                        echo "Error en la consulta";
+                    }else {
+                        $exito = mysqli_stmt_bind_result($result, $titulo, $descripcion, $estado, $fecha);
+                        while ($fila = mysqli_stmt_fetch($result)) {
             ?>
                 <tbody>
-                    <td><?= $fila['title']; ?></td>
-                    <td><?= $fila['description']; ?></td>
-                    <td><?= $fila['date_t']; ?></td>
-                    <td><?= $fila['estado']; ?></td>
+                    <td><?= $titulo; ?></td>
+                    <td><?= $descripcion; ?></td>
+                    <td><?= $fecha; ?></td>
+                    <td><?= $estado; ?></td>
                     <td></td>
                 </tbody>
             <?php
-            } }
+            }
+            mysqli_stmt_close($result);
+        }
+    }
             ?>
         </table>
 </div>
-
-
 
 <?php include("../../includes/footer.php") ?>
