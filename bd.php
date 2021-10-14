@@ -11,11 +11,8 @@ $conectarbd = mysqli_connect(
     'sangelco_bitacora'
 );
 
-/*if (isset($conectarbd)) {
-    echo "DB esta conectada";
-}*/
-
-$xd = "lapakwnoer";
-
-$_SESSION['datos'] = $xd;
+$bd = new mysqli("host17.latinoamericahosting.com", "sangelco", "S@ngelCP2020", "sangelco_bitacora");
+if ($bd->connect_errno) {
+    echo "Error al conectar la base de datos. Codigo de error(" . $myqli->connect_errno . ") " . $myqli->connect_error;
+}
 ?>
