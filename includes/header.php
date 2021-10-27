@@ -20,7 +20,7 @@
             </div>
             <div class="row justify-content-start">
                 <div class="col">
-                    <a href="funciones/formularios/form_buscar.php" class="btn btn-secondary">
+                    <a href="funciones/buscar.php" class="btn btn-secondary">
                         Consutar Tareas
                     </a>
                     <a href="cerrar_session.php" id="ocultar">
