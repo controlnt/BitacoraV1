@@ -20,10 +20,10 @@
             </div>
             <div class="row justify-content-start">
                 <div class="col">
-                    <a href="funciones/buscar.php" class="btn btn-secondary">
+                    <a href="funciones/buscar.php" class="btn btn-secondary ocultar">
                         Consutar Tareas
                     </a>
-                    <a href="cerrar_session.php" id="ocultar">
+                    <a href="cerrar_session.php" class="ocultar">
                         <button class="btn btn-danger text-nowrap" id="cerrarsesion">
                             <i class="fas fa-sign-out-alt"></i>
                         </button>
@@ -35,9 +35,9 @@
 </header>
 
 <?php
-if ($cerrar_session=="ocultar") {?>
+if (!isset($_SESSION['usuario'])) {?>
     <style>
-        #ocultar {
+        .ocultar {
             display: none;
         }
     </style>
