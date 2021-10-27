@@ -2,25 +2,34 @@
 $cerrar_session = "ocultar";
 include("../includes/header.php");
 include("../bd.php");
-?>
 
-<center>
-<h1 class="form-control fs-1">Registro</h1>
-<div class="row">
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+    <h1 class="form-control fs-1">Registro</h1>
         <form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-            <div class="col-2 m-1">
-            <input type="text" name="usuario" id="usuario" placeholder="Ingrese Usuario" required class="form-control">
+            <div class="row justify-content-center">
+                <div class="col-2 m-1">
+                    <input type="text" name="usuario" id="usuario" placeholder="Ingrese Usuario" required class="form-control">
+                </div>
             </div>
-            <div class="col-2 m-1">
-            <input type="email" name="correo" placeholder="Ingrese Correo" class="form-control">
+            <div class="row justify-content-center">
+                <div class="col-2 m-1">
+                    <input type="email" name="correo" placeholder="Ingrese Correo" class="form-control">
+                </div>
             </div>
-            <div class="col-2 m-1">
-            <input type="password" name="contrasena" placeholder="Ingrese Contraseña" required class="form-control">
+            <div class="row justify-content-center">
+                <div class="col-2 m-1">
+                    <input type="password" name="contrasena" placeholder="Ingrese Contraseña" required class="form-control">
+                </div>
             </div>
-            <input class="btn btn-success" type="submit" value="Registrar" name="btnregistrar">
+            <div class="row justify-content-center">
+                <div class="col-2 m-1">
+                    <input class="btn btn-success" type="submit" value="Registrar" name="btnregistrar">
+                </div>
+            </div>
         </form>
-</div>
-</center>
 <?php
 
 if (isset($_POST['btnregistrar'])) {
@@ -43,6 +52,9 @@ if (isset($_POST['btnregistrar'])) {
     
     //EJECUTO EL QUERY O LA SENTENCIA
     $exito = $stmt->execute();
+
+    //ENVIO MENSAJE PARA PONER UNA BARRITA DE REGISTRADO CON EXITO
+    $_SESSION["men_login"] = 1;
 
     //CIERRO Y LA SENTENCIA
     $stmt->close();
