@@ -28,15 +28,24 @@ if (isset($_POST['guardar_tarea'])) {
 
     }else {
 
-        //ENVIAR PARA QUE APARESCA UN MENSAJE EN INDEX
-        $_SESSION['mensaje'] = "Tarea Guardada Con Exito";
-        $_SESSION['tipo-mensaje'] = 'success';
+        $exito = $stmt->execute();
 
-        //CERRAMOS LA SENTENCIA
-        $stmt->close();
+        if ($exito == true) {
 
-        //REDIRECIONAMOS AL LOGIN
-        header("Location: ../index.php");
+            //ENVIAR PARA QUE APARESCA UN MENSAJE EN INDEX
+            $_SESSION['mensaje'] = "Tarea Guardada Con Exito";
+            $_SESSION['tipo-mensaje'] = 'success';
+
+            //CERRAMOS LA SENTENCIA
+            $stmt->close();
+
+            //REDIRECIONAMOS AL LOGIN
+            header("Location: ../index.php");
+
+        }else {
+            echo "No funciono";
+        }
+
     }
 
 }
