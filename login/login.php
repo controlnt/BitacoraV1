@@ -8,34 +8,49 @@ include("../includes/header.php");
 if (isset($_SESSION["men_login"])) {
 ?>
 
-<div class="alert alert-dismissible alert-success fade show m-2">
-    USUARIO CORRECTAMENTE REGISTRADO
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+    <div class="alert alert-dismissible alert-success fade show m-2">
+        USUARIO CORRECTAMENTE REGISTRADO
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 
 <?php
 
-//ASEMOS UNSET DEL MENSAJE QUE ENVIARON
-unset($_SESSION['men_login']);
+    //ASEMOS UNSET DEL MENSAJE QUE ENVIARON
+    unset($_SESSION['men_login']);
 }
 
 ?>
 
-<div class="row justify-content-center">
-    <div class="col">
-        <h1 class="form-control fs-1">Inicio De Sesion</h1>
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col">
+            <h1 class="form-control fs-1">Inicio De Sesion</h1>
+        </div>
+
     </div>
-</div>
-<div class="row justify-content-center">
+
+    <div class="row justify-content-center">
+
         <form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+
             <div class="col-2 m-1">
-            <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Ingrese Usuario" required>
+                <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Ingrese Usuario" required>
             </div>
+
             <div class="col-2 m-1">
-            <input class="form-control" type="password" name="contrasena" placeholder="Ingrese Contraseña" required>
+                <input class="form-control" type="password" name="contrasena" placeholder="Ingrese Contraseña" required>
             </div>
-            <input class="btn btn-success" type="submit" value="Login" name="btnlogin">
+
+            <div class="col-2 m-1">
+                <input class="btn btn-success" type="submit" value="Login" name="btnlogin">
+            </div>
+
         </form>
+
+    </div>
+
 </div>
 
 <?php
