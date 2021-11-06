@@ -1,18 +1,32 @@
 <?php
+
+//INCLUIR LA BD Y EL HEADER
 include("bd.php");
+include("includes/header.php");
+
+//PONEMOS LA ZONA HORARIA
+date_default_timezone_set('America/Bogota');
+
+//VERIFICAR SI EXISTE UNA SESSION
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+//VERIFICAR QUE EL USUARIO ESTE LOGEADO
+if (!isset($_SESSION['ver_login'])) {
+    header('Location: login/login.php');
+}
+
+//TRAER EL USUARIO LOGEADO
 $usuario = $_SESSION['usuario'];
+$id_u = $_SESSION['id']
+
+/*TRAER EL USUARIO DE LA BD
 $query = "SELECT * FROM users WHERE usuario = '$usuario'";
 $resultados_id = mysqli_query($conectarbd, $query);
 $fila = mysqli_fetch_array($resultados_id);
-$_SESSION['id_usu'] = $fila['id'];
+$_SESSION['id_usu'] = $fila['id'];*/
 
-$cerrar_session = "mostrar";
-
-include("includes/header.php");
-
-if (!isset($_SESSION['ver_login'])) {
-    header('Location: login/form_login.php');
-}
 ?>
 
 <div class="container p-4">
@@ -25,10 +39,14 @@ if (!isset($_SESSION['ver_login'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
 
-            <?php 
+            <?php
+
             unset ($_SESSION['mensaje']); 
             unset ($_SESSION['tipo-mensaje']);
-            } ?>
+
+            }
+
+            ?>
 
             <div class="card card-body">
                 <form action="funciones/crear.php" method="POST">
@@ -71,35 +89,89 @@ if (!isset($_SESSION['ver_login'])) {
                     </tr>
                 </thead>
                 <tbody>
+
                     <?php
-                    $id = $_SESSION['id_usu'];
-                    date_default_timezone_set('America/Bogota');
+
+                    //VARIABLES A CONSULTAR
                     $hoy_i = date("Y-m-d 00:00:00");
                     $hoy_f = date("Y-m-d 23:59:59");
-                    $query = "SELECT * FROM task WHERE date_t BETWEEN '". $hoy_i. "' AND '".$hoy_f."'";
-                    $resultados_tareas = mysqli_query($conectarbd, $query);
-                    while ($fila = mysqli_fetch_array($resultados_tareas)) {?>
+
+                    //HACEMOS EL QUERY
+                    $query = "SELECT id, title, description, estado, date_t FROM task WHERE date_t BETWEEN ? AND ? AND id_users=?";
+
+                    //PREPARAMOS EL QUERY
+                    $stmt = $bd->prepare($query);
+
+                    //ASOCIAR LAS VARIABLES CON LOS ?
+                    $exito = $stmt->bind_param("ss", $hoy_i, $hoy_f, $id_u);
+
+
+                    /*$resultado = mysqli_prepare($conectarbd, $query);
+                    $exito = mysqli_stmt_bind_param($resultado, "ss", $hoy_i, $hoy_f);*/
+
+
+                    //CONSULTAR SI LA PREPARACION ES CORRECTA
+                    if ($exito == false) {
+
+                    ?>
+
+                        <div class="row ">
+                            <div class="col">
+                                <div class="alert alert-danger text-center">
+                                    NO SE ENCUENTRA NUNGUNA TAREA
+                                </div>
+                            </div>
+                        </div>
+
+                    <?php
+
+                    }else {
+
+                    //EJECUTAMOS LA SENTENCIA
+                    $exito = $stmt->execute();
+
+                    //VERIFICAR SI LA EJECUCION DE LA CONSULTA SALIO BIEN
+                    if ($exito == false) {
+                        echo "Error en la consulta";
+                    }else {
+
+                        //VUNCULAS LOS DATOS DEVUELTOS
+                        $stmt->bind_result($id_t,$titulo, $descripcion, $estado, $fecha);
+
+                        /*$exito = mysqli_stmt_bind_result($result, $id, $titulo, $descripcion, $estado, $fecha);*/
+
+                        while ($stmt->fetch()) {
+
+                    ?>
+
                         <tr>
-                            <td><?php echo $fila['title']; ?></td>
-                            <td><?php echo $fila['description']; ?></td>
-                            <td><?php echo $fila['date_t']; ?></td>
-                            <td><?php echo $fila['estado'] ?></td>
+                            <td><?= $titulo ?></td>
+                            <td><?= $descripcion ?></td>
+                            <td><?= $fecha ?></td>
+                            <td><?= $estado ?></td>
                             <td>
-                                <a href="funciones/eliminar.php?id=<?php echo $fila['id']?>" class="btn btn-danger">
+                                <a href="funciones/eliminar.php?id=<?= $id_t ?>" class="btn btn-danger">
                                     <i class="fa fa-trash-alt"></i>
                                 </a>
-                                <a href="funciones/editar.php?id=<?php echo $fila['id']?>" class="btn btn-secondary">
+                                <a href="funciones/editar.php?id=<?= $id_t ?>" class="btn btn-secondary">
                                     <i class="fa fa-marker"></i>
                                 </a>
-                                <a href="funciones/realizada.php?id=<?php echo $fila['id']?>" class="btn btn-success">
+                                <a href="funciones/realizada.php?id=<?= $id_t ?>" class="btn btn-success">
                                     <i class="fas fa-check"></i>
                                 </a>
                             </td>
                         </tr>
-                    <?php } ?>
+                    <?php
+
+                        } } }
+
+                    ?>
+                </tbody>
             </table>
         </div>
-        <?php /*?>
+        <?php
+
+        /*?>
         <hr class="y m-2">
         <form class="container" action="funciones/buscar.php" method="POST">
             <div class="row align-items-center">
@@ -162,8 +234,15 @@ if (!isset($_SESSION['ver_login'])) {
                 </tbody>
             </table>
         </div><!--TABLE-->
-        <?php */ ?>
+        <?php */
+
+        ?>
     </div><!--ROW-->
 </div><!--CONTAINER-->
 
-<?php  include("includes/footer.php")?>
+<?php
+
+include("includes/footer.php")
+
+?>
+
