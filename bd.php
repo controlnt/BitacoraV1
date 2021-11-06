@@ -12,6 +12,10 @@ $conectarbd = mysqli_connect(
 );
 
 $bd = new mysqli("host17.latinoamericahosting.com", "sangelco", "S@ngelCP2020", "sangelco_bitacora");
+
+
 if ($bd->connect_errno) {
     echo "Error al conectar la base de datos. Codigo de error(" . $bd->connect_errno . ") " . $bd->connect_error;
 }
+
+?>

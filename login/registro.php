@@ -1,35 +1,50 @@
-<?php 
-$cerrar_session = "ocultar";
+<?php
+
+//INCLIMOS LA BASE DE DATOS Y LA CABESERA
 include("../includes/header.php");
 include("../bd.php");
 
+//VERIFICAR QUE EXISTE LA SESSION
 if (!isset($_SESSION)) {
+
     session_start();
+
 }
+
 ?>
-    <h1 class="form-control fs-1">Registro</h1>
-        <form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-            <div class="row justify-content-center">
-                <div class="col-2 m-1">
-                    <input type="text" name="usuario" id="usuario" placeholder="Ingrese Usuario" required class="form-control">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-2 m-1">
-                    <input type="email" name="correo" placeholder="Ingrese Correo" class="form-control">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-2 m-1">
-                    <input type="password" name="contrasena" placeholder="Ingrese Contraseña" required class="form-control">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-2 m-1">
-                    <input class="btn btn-success" type="submit" value="Registrar" name="btnregistrar">
-                </div>
-            </div>
-        </form>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col">
+            <h1 class="form-control fs-1">Registro</h1>
+        </div>
+
+    </div>
+
+    <form class="row justify-content-center" method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+
+        <div class="col-2 m-1">
+            <input type="text" name="usuario" id="usuario" placeholder="Ingrese Usuario" required class="form-control">
+        </div>
+
+        <div class="col-2 m-1">
+            <input type="email" name="correo" placeholder="Ingrese Correo" class="form-control">
+        </div>
+
+        <div class="col-2 m-1">
+            <input type="password" name="contrasena" placeholder="Ingrese Contraseña" required class="form-control">
+        </div>
+
+        <div class="col-2 m-1">
+            <input class="btn btn-success" type="submit" value="Registrar" name="btnregistrar">
+        </div>
+
+    </form>
+
+</div>
+
 <?php
 
 if (isset($_POST['btnregistrar'])) {

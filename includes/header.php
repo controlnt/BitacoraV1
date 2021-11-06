@@ -35,12 +35,19 @@
 </header>
 
 <?php
-if (!isset($_SESSION['usuario'])) {?>
+
+if (!isset($_SESSION['usuario'])) {
+
+?>
+
     <style>
         .ocultar {
             display: none;
         }
     </style>
+
 <?php
+
 }
+
 ?>
