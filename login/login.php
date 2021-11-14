@@ -82,20 +82,27 @@ if (isset($_POST['btnlogin'])) {
     //PONER LOS DATOS EN LAS VARIABLES
     $stmt->fetch();
 
-    echo $stmt->num_rows();
-
     //VERIFICAR CONTRASEÑA USUARIO CON LA DE LA BASE DE DATOS Y GUARDAR SI ES VERDADERA O FALSA
     $contrasena_v = password_verify($contrasena, $v_contrasena);
 
-    print_r($contrasena_v);
 
     //REVISAMOS SI SOLO NOS DEVOLVIO 1 DATO Y SI LA CONTRASEÑA TUVO EXITO
-    if (($stmt->num_rows() == 1)&&($contrasena_v == true)) {
+    if ($contrasena_v == 1) {
+
+        //ENVIANDO DATOS PARA QUE EL PROGRAMA LOS PUEDA UTILIZAR
         $_SESSION['usuario'] = $v_usuario;
         $_SESSION['id'] = $id;
+
+        //ENVIANDO PARA QUE EL INDEX VERIFIQUE QUE EL UUSARIO ESTA LOGEADO
+        $_SESSION['ver_login'] = "Logeado";
+
+        //ENVIAR AL INDEX
         header("Location: ../index.php");
+
     }else {
+
         echo "no funciono";
+
     }
 
 //CERRAR LA SENTENCIA
