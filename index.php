@@ -130,7 +130,7 @@ $query = "SELECT id, title, description, estado, date_t FROM task WHERE date_t B
 $stmt = $bd->prepare($query);
 
 //ASOCIAR LAS VARIABLES CON LOS ?
-$exito = $stmt->bind_param("ss", $hoy_i, $hoy_f, $id_u);
+$exito = $stmt->bind_param("ssi", $hoy_i, $hoy_f, $id_u);
 
 
 /*$resultado = mysqli_prepare($conectarbd, $query);
