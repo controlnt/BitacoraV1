@@ -66,13 +66,14 @@ if (!isset($_SESSION)) {
         //TRAER DATOS A CONSULTAR
         $fecha_i = $_POST['fecha_i'];
         $fecha_f = $_POST['fecha_f'];
+        $id_u = $_SESSION['id'];
 
         //CREAR Y PREPARAR EL QUERY
-        $query = "SELECT id, title, description, estado, date_t FROM task WHERE date_t BETWEEN ? AND ? /*'". $fecha_i. "' AND '".$fecha_f."'*/";
+        $query = "SELECT id, title, description, estado, date_t FROM task WHERE date_t BETWEEN ? AND ? AND id_users=?";
         $stmt = $bd->prepare($query);
 
         //ASOSAR DATOS AL QUERY
-        $exito = $stmt->bind_param("ss", $fecha_i, $fecha_f);
+        $exito = $stmt->bind_param("sss", $fecha_i, $fecha_f, $id_u);
 
         //EJECUTAMOS EL QUERY
         $exito = $stmt->execute();
