@@ -50,9 +50,4 @@ if (!isset($_SESSION['usuario'])) {
 
 }
 
-//VERIFICAR QUE EL USUARIO ESTE LOGEADO
-if (!isset($_SESSION['ver_login'])) {
-    header('Location: login/login.php');
-}
-
 ?>
