@@ -67,26 +67,25 @@ if (isset($_SESSION['mensaje'])) {
 
                 <form action="funciones/crear.php" method="POST">
 
-                    <div class="form-gropup">
-                        <input type="text" name="titulo" class="form-control" placeholder="Titulo Tarea" autofocus>
+                    <div class="form-group my-1">
+                            <input type="text" name="titulo" class="form-control" placeholder="Titulo Tarea" autofocus>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group my-1">
                         <textarea name="descripcion" rows="2" class="form-control" placeholder="Describir Tarea"></textarea>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group my-1">
                         <input type="datetime-local" name="fecha" class="form-control" placeholder="Fecha">
                     </div>
 
                     <div>
-                        <select name="estado" id="estado" class="form-control">
-                            <option selected value="realizada" class="success">Realizada</option>
-                            <option value="pendiente" class="warning">Pendiente</option>
-                            <option value="imprevista" class="danger">Imprevista</option>
+                        <select name="estado" id="estado" class="form-control my-1">
+                            <option selected value="realizada" class="bg-success">Realizada</option>
+                            <option value="pendiente" class="bg-warning">Pendiente</option>
+                            <option value="imprevista" class="bg-danger">Imprevista</option>
                         </select>
                     </div>
-
 
                     <div>
                         <input type="submit" class="btn btn-success btn-block" name="guardar_tarea" value="Guardar Tarea">
