@@ -3,7 +3,7 @@
 //INCLUIMOS LOS ARCHIVOS DE LA VASE DE DATOS Y EL HEADER
 include("../bd.php");
 include("../includes/header.php");
-include("../includes/ver_login.php");
+include("../includes/verificar.php");
 
 //VERIFICAR SI EXISTE UNA SESSION
 if (!isset($_SESSION)) {

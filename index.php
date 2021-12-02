@@ -3,7 +3,7 @@
 //INCLUIR LA BD Y EL HEADER
 include("bd.php");
 include("includes/header.php");
-include("includes/ver_login.php");
+include("includes/verificar.php");
 
 //PONEMOS LA ZONA HORARIA
 date_default_timezone_set('America/Bogota');
