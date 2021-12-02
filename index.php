@@ -127,11 +127,6 @@ $stmt = $bd->prepare($query);
 //ASOCIAR LAS VARIABLES CON LOS ?
 $exito = $stmt->bind_param("ssi", $hoy_i, $hoy_f, $id_u);
 
-
-/*$resultado = mysqli_prepare($conectarbd, $query);
-$exito = mysqli_stmt_bind_param($resultado, "ss", $hoy_i, $hoy_f);*/
-
-
 //CONSULTAR SI LA PREPARACION ES CORRECTA
 if ($exito == false) {
 
@@ -200,77 +195,9 @@ if ($exito == false) {
 
         </div>
 
-<?php
-
-/*?>
-<hr class="y m-2">
-<form class="container" action="funciones/buscar.php" method="POST">
-    <div class="row align-items-center">
-        <div class="col-1">
-            <label for="desde">Desde</label>
-        </div>
-        <div class="col-4">
-            <input type="datetime-local" name="fecha_i" class="form-control">
-        </div>
-        <div class="col-1">
-            <label for="hasta">Hasta</label>
-        </div>
-        <div class="col-4">
-            <input type="datetime-local" name="fecha_f" class="form-control">
-        </div>
-        <div class="col-2">
-            <input type="submit" class="btn btn-outline-success" name="buscar_tarea" value="Buscar">
-        </div>
     </div>
-</form>
-<div class="m-2">
-    <table class="table table-bordered">
-        <thead>
-            <th>Titulo</th>
-            <th>Descripcion</th>
-            <th>Fecha</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-        </thead>
-        <tbody>
-            <?php
-            if (!isset($_SESSION['t_buscada'])) {
-                $_SESSION['t_buscada'] = NULL;
-            }
-            $t_buscada = $_SESSION['t_buscada'];
-            if ($t_buscada != NULL) {
-            ?>
-            <tr>
-                <td><?php echo $t_buscada['title']?></td>
-                <td><?php echo $t_buscada['description']?></td>
-                <td><?php echo $t_buscada['date_t']?></td>
-                <td><?php echo $t_buscada['estado']?></td>
-                <td>
-                        <a href="funciones/eliminar.php?id=<?php echo $t_buscada['id']?>" class="btn btn-danger">
-                            <i class="fa fa-trash-alt"></i>
-                        </a>
-                        <a href="funciones/editar.php?id=<?php echo $t_buscada['id']?>" class="btn btn-secondary">
-                            <i class="fa fa-marker"></i>
-                        </a>
-                        <a href="funciones/realizada.php?id=<?php echo $t_buscada['id']?>" class="btn btn-success">
-                            <i class="fas fa-check"></i>
-                        </a>
-                </td>
-            </tr>
-            <?php
-            }
-            if(isset($_SESSION['t_buscada'])) {
-            unset ($_SESSION['t_buscada']);
-            } ?>
-        </tbody>
-    </table>
-</div><!--TABLE-->
-<?php */
 
-?>
-    </div><!--ROW-->
-
-</div><!--CONTAINER-->
+</div>
 
 <?php
 
