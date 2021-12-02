@@ -75,10 +75,6 @@ if (isset($_POST['btnlogin'])) {
     //VINCULAMOS DATOS DEBUELTOS A VARIABLES
     $stmt->bind_result($id,$v_usuario, $v_contrasena);
 
-    /*$query = mysqli_query($conectarbd,"SELECT * FROM users WHERE usuario = '$usuario'");
-    $fila = mysqli_num_rows($query);
-    $buscarcontra = mysqli_fetch_array($query);*/
-
     //PONER LOS DATOS EN LAS VARIABLES
     $stmt->fetch();
 
