@@ -10,4 +10,10 @@ if (!isset($_SESSION['ver_login'])) {
     header('Location: login/login.php');
 }
 
+if ($_SESSION['ver_e'] == "No") {
+
+    header('Location: ../empresas/ingresar.php');
+
+}
+
 ?>

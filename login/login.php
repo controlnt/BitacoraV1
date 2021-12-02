@@ -63,7 +63,7 @@ if (isset($_POST['btnlogin'])) {
     $contrasena = $_POST['contrasena'];
 
     //HACEMOS Y PREPARAMOS EL QUERY
-    $query = "SELECT id, usuario, contrasena FROM users WHERE usuario = ?";
+    $query = "SELECT * FROM users WHERE usuario = ?";
     $stmt = $bd->prepare($query);
 
     //ASOCIAMOS LAS VARIABLES CON EL QUERY
@@ -73,7 +73,7 @@ if (isset($_POST['btnlogin'])) {
     $stmt->execute();
 
     //VINCULAMOS DATOS DEBUELTOS A VARIABLES
-    $stmt->bind_result($id,$v_usuario, $v_contrasena);
+    $stmt->bind_result($id,$v_usuario, $correo_u, $v_contrasena, $id_e, $id_g);
 
     //PONER LOS DATOS EN LAS VARIABLES
     $stmt->fetch();
@@ -88,12 +88,23 @@ if (isset($_POST['btnlogin'])) {
         //ENVIANDO DATOS PARA QUE EL PROGRAMA LOS PUEDA UTILIZAR
         $_SESSION['usuario'] = $v_usuario;
         $_SESSION['id'] = $id;
+        $_SESSION['correo_u'] = $correo_u;
+        $_SESSION['id_e'] = $id_e;
+        $_SESSION['id_g'] = $id_g;
 
         //ENVIANDO PARA QUE EL INDEX VERIFIQUE QUE EL UUSARIO ESTA LOGEADO
         $_SESSION['ver_login'] = "Logeado";
 
-        //ENVIAR AL INDEX
-        header("Location: ../index.php");
+        if ($id_e != NULL) {
+            
+            $_SESSION['ver_e'] = "Si";
+            header("Location: ../index.php");
+        }else {
+
+            $_SESSION['ver_e'] = "No";
+            header("Location: ../empresas/ingresar.php");
+
+        }
 
     }else {
 
