@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col">
-                    <a class="navbar-brand" href="index.php">SANGEL N TEGNOLOGIA</a>
+                    <a class="navbar-brand" href="index.php">SANGEL N TECNOLOGIA</a>
                 </div>
             </div>
             <div class="row justify-content-start">
