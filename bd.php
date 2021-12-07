@@ -7,11 +7,11 @@ session_start();
 $conectarbd = mysqli_connect(
     'host17.latinoamericahosting.com',
     'sangelco',
-    'S@ngelCP2020',
+    'SangelCP2020@',
     'sangelco_bitacora'
 );
 
-$bd = new mysqli("host17.latinoamericahosting.com", "sangelco", "S@ngelCP2020", "sangelco_bitacora");
+$bd = new mysqli("host17.latinoamericahosting.com", "sangelco", "SangelCP2020@", "sangelco_bitacora");
 
 
 if ($bd->connect_errno) {
